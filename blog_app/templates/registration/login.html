@@ -1,0 +1,42 @@
+{% extends 'blog_app/base.html' %}
+
+    {% block contents %}
+
+        <div class="w3-card-4 w3-margin w3-white">
+            <div class="w3-container w3-padding-large">
+                <h3><b>ログインしてください</b></h3>
+            </div>
+
+            <div class="w3-container">
+                <div class="w3-row">
+                    <div class="w3-col s12">
+                        <div class="w3-col m8 w3-hide-small">
+
+                            <form method="post">
+                                {% csrf_token %}
+
+                                    {% if form.non_field_errors %}
+                                        {% for error in form.non_field_errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    {% endif %}
+
+                                <p>
+                                    {{ form.username.label_tag }}<br>
+                                    {{ form.username }}
+                                </p>
+                                <p>
+                                    {{ form.password.label_tag }}<br>
+                                    {{ form.password }}
+                                </p>
+                                <p><button type="submit">ログイン</button></p>
+                                {{ error }}
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}

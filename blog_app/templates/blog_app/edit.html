@@ -1,0 +1,47 @@
+{% extends 'blog_app/base.html' %}
+
+    {% block contents %}
+
+        <div class="w3-card-4 w3-margin w3-white">
+            <div class="w3-container w3-padding-large">
+                <h3><b>記事編集画面</b></h3>
+                <div class="w3-container">
+                    <div class="w3-row">
+                        <div class="w3-col s12">
+                            <div class="w3-col w3-hide-small">
+                                <form method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+
+                                    {% if form.non_field_errors %}
+                                        {% for error in form.non_field_errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    {% endif %}
+
+                                    <p>
+                                        {{ form.title.label_tag }}<br>
+                                        {{ form.title }}
+                                    </p>
+                                    <p>
+                                        {{ form.text.label_tag }}<br>
+                                        {{ form.text }}
+                                    </p>
+                                    <p>
+                                        {{ form.image.label_tag }}<br>
+                                        {{ form.image }}
+                                    </p>
+                                    <p>
+                                        {{ form.tags.label_tag }}<br>
+                                        {{ form.tags }}
+                                    </p>
+                                    <p><input type="submit"></p>
+                                </form>
+                                <button onclick="/blog_app/manage/edit/{{ article.pk }}/delete/">削除
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}

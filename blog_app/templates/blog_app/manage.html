@@ -1,0 +1,26 @@
+{% extends 'blog_app/base.html' %}
+
+    {% block contents %}
+        <div class="w3-card-4 w3-margin w3-white">
+            <div class="w3-container w3-padding-large">
+                    <h2><b>記事管理画面</b></h2>
+            </div>
+
+            <div class="w3-container">
+                <div class="w3-row">
+                    <div class="w3-col s12 w3-margin-bottom">
+                        <p><a href="{% url 'blog_app:form' %}" style="text-decoration:none;font-weight:normal">記事を新規作成する</a></p>
+                    <table>
+                        <tbody>
+                        {% for article in article_list %}
+                            <tr><td><a href="{% url 'blog_app:edit' article.id %}" style="text-decoration:none;font-weight:normal">{{ article.created_at }}</a></td>
+                            <td><a href="{% url 'blog_app:edit' article.id %}" style="text-decoration:none;font-weight:normal">{{ article.title }}</a></td></tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'blog_app/base.html' %}
+{% load static %}
+
+    {% block contents %}
+
+        <div class="w3-card-4 w3-margin w3-white">
+            <div class="w3-container w3-padding-large">
+            <h2><b>'{{ tag.name }}'に関連する記事</b></h2>
+                </div>
+
+            <div class="w3-container">
+                <div class="w3-row">
+                    {% for article in article_set %}
+                    <div class="w3-col l6 s6 w3-margin-bottom">
+                        <div class="w3-container">
+                            <div class="w3-display-container">
+
+                                <div class="w3-display-topright w3-black ">{{ article.created_at }}</div>
+                                <a href="/blog_app/{{ article.id }}/"><img src="/media/{{ article.image }}/" alt="article {{ article.id }} image" style="width:100%"></a>
+                                <p><a href="/blog_app/{{ article.id }}/" style="text-decoration:none">{{ article.title }}</a></p>
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="w3-container w3-padding-large">
+
+                {% if page_obj.has_previous %}
+                    <button class="w3-button w3-black w3-padding-large w3-margin-bottom">&laquo; Previous</button>
+                {% endif %}
+
+                {% if not page_obj.has_previous %}
+                    <button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">&laquo; Previous</button>
+                {% endif %}
+
+                {% if page_obj.has_next %}
+                    <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next &raquo;</button>
+                {% endif %}
+
+                {% if not page_obj.has_next %}
+                    <button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Next &raquo;</button>
+                {% endif %}
+
+            </div>
+        </div>
+
+    {% endblock %}
+
