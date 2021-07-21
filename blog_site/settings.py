@@ -16,7 +16,8 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['18.179.136.137']
+ALLOWED_HOSTS = [env('ALLOWED_HOST1'), env('ALLOWED_HOST2'), env('ALLOWED_HOST3')]
+
 
 
 # Application definition
@@ -121,11 +122,20 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
-
+"""
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+"""
+
+
+STATIC_URL = '/static/'
+
+# STATIC_ROOT = '/home/ubuntu/blog_site/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+
 
 # Media files
 
@@ -138,3 +148,37 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Logging
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'console': {
+            'format': '%(name)-12s %(levelname)-8s %(message)s'
+        },
+        'file': {
+            'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
+        }
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'console'
+        },
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'formatter': 'file',
+            'filename': '/tmp/debug.log'
+        }
+    },
+    'loggers': {
+        '': {
+            'level': 'DEBUG',
+            'handlers': ['console', 'file']
+        }
+    }
+}
+

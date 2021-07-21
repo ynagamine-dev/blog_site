@@ -3,7 +3,7 @@
     {% block contents %}
 
         <div class="w3-card-4 w3-margin w3-white">
-            <img src="/media/{{ article.image }}/" alt="article {{ article.id }} image" style="width:100%">
+            <img src="{{ article.image.url }}" class="article-img" alt="article {{ article.id }} image">
                 <div class="w3-container">
                     <h3><b>{{ article.title }}</b></h3>
                 </div>
@@ -13,18 +13,17 @@
                     <p style="text-align: right"><span class="w3-opacity">{{ article.created_at }}</span></p>
                 <div class="w3-row">
                     <div class="w3-col s12 w3-margin-bottom">
-                        <div class="w3-col w3-hide-small">
 
                             <p>Tags: {% for tag in article.tags.all %}
                                 <span class="w3-tag w3-light-grey w3-medium w3-margin-bottom"><b>
-                                    <a href="/blog_app/tag/{{ tag.id }}/" style="text-decoration:none;font-weight:normal">{{ tag }}</a>
+					<a href="{% url 'blog_app:tag_detail' tag.id %}" style="text-decoration:none;font-weight:normal">{{ tag }}</a>
                                 </span>
                             {% endfor %}</p>
 
-                        </div>
                             <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
                                 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    </div>
+		    		<iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.ks-drinks-at-home.com%2F11%2F&layout=button_count&size=small&width=77&height=20&appId" width="77" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+		    </div>
                 </div>
             </div>
         </div>

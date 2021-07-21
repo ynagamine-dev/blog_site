@@ -36,7 +36,9 @@
                                     </p>
                                     <p><input type="submit"></p>
                                 </form>
-                                <button onclick="/blog_app/manage/edit/{{ article.pk }}/delete/">削除
+                                <form action="{% url 'blog_app:delete' article.id %}">
+				    <input type="submit" value="削除">
+				</form>
                             </div>
                         </div>
                     </div>
