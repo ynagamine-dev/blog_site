@@ -11,20 +11,20 @@ class PostArticleForm(ModelForm):
         fields = ('title', 'text', 'image', 'tags')
 
         widgets = {
-            'title': forms.Textarea(attrs=
-                                    {'rows': 1, 'cols': 90}),
+            'title': forms.TextInput(attrs=
+                                    {'size': 36}),
             'text': forms.Textarea(attrs=
-                                   {'rows': 20, 'cols': 90}),
+                                    {'cols': 36}),
             'tags': forms.SelectMultiple(attrs=
-                                    {'size': 9}),
+                                    {'size': 10}),
         }
 
 
 class ContactForm(forms.Form):
 
-    name = forms.CharField(label='お名前', max_length=30)
-    email = forms.EmailField(label='Eメール', max_length=30)
-    text = forms.CharField(label='お問い合わせ内容', min_length=20, max_length=200, widget=forms.Textarea)
+    name = forms.CharField(label='お名前', max_length=30, widget=forms.TextInput(attrs={'size': 28}))
+    email = forms.EmailField(label='Eメール', max_length=30, widget=forms.EmailInput(attrs={'size': 28}))
+    text = forms.CharField(label='お問い合わせ内容', min_length=20, max_length=200, widget=forms.Textarea(attrs={'cols': 36}))
 
 
 class LoginForm(AuthenticationForm):

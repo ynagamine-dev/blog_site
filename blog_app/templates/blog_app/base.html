@@ -1,13 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
-<title>ワインブログ</title>
+<title>K'S DRINKS AT HOME</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<style>
-body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-</style>
+<link rel="stylesheet" href="{% static 'blog_app/style.css' %}">
 <body class="w3-light-grey">
 
 <!-- w3-content defines a container for fixed size centered content,
@@ -16,8 +15,8 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 <!-- Header -->
 <header class="w3-container w3-center w3-padding-32">
-    <h1><b><a href="/blog_app/" style="text-decoration:none;">A'S WINE BLOG</a></b></h1>
-  <p>アキクンの<span class="w3-tag">ワイン</span>ブログ&#x1f377;</p>
+	<h1><b><a href="{% url 'blog_app:index' %}" style="text-decoration:none;">K'S DRINKS AT HOME</a></b></h1>
+  <p>キースの<span class="w3-tag">コーヒー＆ワイン</span>ブログ&#9749;&#x1f377;</p>
 </header>
 
 <!-- Grid -->
@@ -34,11 +33,10 @@ and is wrapped around the whole page content, except for the footer in this exam
 <div class="w3-col l4">
   <!-- About Card -->
   <div class="w3-card w3-margin w3-margin-top">
-      {% load static %}
-  <img src="/static/blog_app/pexels-polina-kovaleva-8350239.jpg/" alt="ワイン" style=width:100%>
+  <img src="{% static 'blog_app/pexels-polina-kovaleva-8350239.jpg' %}" alt="ワイン" style=width:100%>
     <div class="w3-container w3-white">
-      <h4><b>Aki-khun</b></h4>
-      <p style="font-weight:normal">1956年生まれ。名古屋市在住。グルメとワインをこよなく愛するオヤジです。過去に社内ワイン会開催、海外ワイナリー訪問経験等あり。</p>
+      <h4><b>Keith</b></h4>
+      <p style="font-weight:normal">コーヒーとワインをこよなく愛するオヤジです。過去にワイン会開催、海外ワイナリー訪問経験等あり。</p>
         <p style="font-style:italic; font-weight:normal">Image by Polina Kovaleva</p>
     </div>
   </div><hr>
@@ -51,7 +49,7 @@ and is wrapped around the whole page content, except for the footer in this exam
     <div class="w3-container w3-white">
         <p>{% for tag in tag_list %}
             <span class="w3-button w3-light-grey w3-hover-black w3-small w3-padding-small w3-margin-bottom" style="font-weight:normal">
-                <a href="/blog_app/tag/{{ tag.id }}/" style="text-decoration:none">{{ tag }}</a>
+		    <a href="{% url 'blog_app:tag_detail' tag.id %}" style="text-decoration:none">{{ tag }}</a>
             </span>
         {% endfor %}</p>
     </div>
@@ -89,7 +87,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 <!-- Footer -->
 <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top" style="font-weight:normal">
-    <p>Copyright &copy; 2021 アキクンのワインブログ. All Rights Reserved</p>
+    <p>Copyright &copy; 2021 K'S DRINKS AT HOME. All Rights Reserved</p>
     <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
 </footer>
 
