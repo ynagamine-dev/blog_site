@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-<title>K'S DRINKS AT HOME</title>
+<title>Blog Site</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -15,8 +15,8 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 <!-- Header -->
 <header class="w3-container w3-center w3-padding-32">
-	<h1><b><a href="{% url 'blog_app:index' %}" style="text-decoration:none;">K'S DRINKS AT HOME</a></b></h1>
-  <p>キースの<span class="w3-tag">コーヒー＆ワイン</span>ブログ&#9749;&#x1f377;</p>
+	<h1><b><a href="{% url 'blog_app:index' %}" style="text-decoration:none;">MY BLOG</a></b></h1>
+  <p>My<span class="w3-tag">Blog</span>Site</p>
 </header>
 
 <!-- Grid -->
@@ -33,11 +33,11 @@ and is wrapped around the whole page content, except for the footer in this exam
 <div class="w3-col l4">
   <!-- About Card -->
   <div class="w3-card w3-margin w3-margin-top">
-  <img src="{% static 'blog_app/pexels-polina-kovaleva-8350239.jpg' %}" alt="ワイン" style=width:100%>
+  <img src="{% static 'image'%}" alt="image" style=width:100%>
     <div class="w3-container w3-white">
-      <h4><b>Keith</b></h4>
-      <p style="font-weight:normal">コーヒーとワインをこよなく愛するオヤジです。過去にワイン会開催、海外ワイナリー訪問経験等あり。</p>
-        <p style="font-style:italic; font-weight:normal">Image by Polina Kovaleva</p>
+      <h4><b>About me</b></h4>
+      <p style="font-weight:normal">Welcome to my blog!</p>
+        <p style="font-style:italic; font-weight:normal"></p>
     </div>
   </div><hr>
 
@@ -87,7 +87,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 <!-- Footer -->
 <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top" style="font-weight:normal">
-    <p>Copyright &copy; 2021 K'S DRINKS AT HOME. All Rights Reserved</p>
+    <p>Copyright &copy; All Rights Reserved</p>
     <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
 </footer>
 
